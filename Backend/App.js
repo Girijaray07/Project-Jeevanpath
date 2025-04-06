@@ -12,6 +12,7 @@ const port = process.env.PORT || 3000;
 const GeminiApi = process.env.GEMINI_API;
 
 App.use(Express.urlencoded({ extended: true }));
+App.use(Express.static("Public"));
 App.use(Express.json());
 App.use(cors());
 
