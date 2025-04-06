@@ -106,4 +106,4 @@ npm run dev
 
 **Girija Shankar Ray**  
 GitHub: [@Girijaray07](https://github.com/Girijaray07)  
-Email: `girijaray64@gmail.com
+Email: girijaray64@gmail.com
