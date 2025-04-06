@@ -196,28 +196,39 @@ function VoiceChatbot({ onClose, onEarnPoints, apiKey }: VoiceChatbotProps) {
 
   // Generate AI response
   const generateAIResponse = async (userMessage: string) => {
-    try {
-      setIsTyping(true);
-
-      const response = await fetch("http://localhost:3000/generate-response", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ userMessage }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to get AI response");
+    const urls = [
+      "http://localhost:3000/generate-response", // Primary URL
+      "https://project-jeevanpath.onrender.com/generate-response", // Fallback URL
+    ];
+  
+    let response;
+  
+    for (const url of urls) {
+      try {
+        setIsTyping(true);
+  
+        // Attempt to fetch from the current URL
+        response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userMessage }),
+        });
+  
+        // If response is OK, break the loop and proceed
+        if (response.ok) {
+          break;
+        } else {
+          console.warn(`Failed to fetch from ${url}, trying next URL...`);
+        }
+      } catch (error) {
+        console.error(`Error fetching from ${url}:`, error);
       }
-
-      const data = await response.json();
-      const aiResponse = formatAIResponse(data.response);
-
-      setMessages((prev) => [...prev, { text: aiResponse, isUser: false }]);
-      onEarnPoints(10);
-    } catch (error) {
-      console.error("Error generating AI response:", error);
+    }
+  
+    if (!response || !response.ok) {
+      // If both URLs fail, handle the error
       setMessages((prev) => [
         ...prev,
         {
@@ -225,10 +236,30 @@ function VoiceChatbot({ onClose, onEarnPoints, apiKey }: VoiceChatbotProps) {
           isUser: false,
         },
       ]);
+      setIsTyping(false);
+      return;
+    }
+  
+    try {
+      const data = await response.json();
+      const aiResponse = formatAIResponse(data.response);
+  
+      setMessages((prev) => [...prev, { text: aiResponse, isUser: false }]);
+      onEarnPoints(10);
+
+    } catch (err) {
+      console.error("Error processing AI response:", err);
+      setMessages((prev) => [
+        ...prev,
+        {
+          text: "Oops! Something went wrong while processing the response. Please try again!",
+          isUser: false,
+        },
+      ]);
     } finally {
       setIsTyping(false);
     }
-  };
+  };  
 
   // Format AI response
   const formatAIResponse = (response: string) => {
