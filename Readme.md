@@ -15,7 +15,7 @@ JeevanPath is a smart voice-enabled chatbot built with **React**, **TailwindCSS*
 
 | Frontend           | Backend          | AI Integration          | Database |
 |--------------------|------------------|-------------------------|----------|
-| React + JavaScript | Node.js + Express| Google Generative AI    | MySQL    |
+| React + TypeScript | Node.js + Express| Google Generative AI    | MySQL    |
 
 ## 📁 Project Structure
 
