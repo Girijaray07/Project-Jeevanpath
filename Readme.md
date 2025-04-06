@@ -75,7 +75,7 @@ GOOGLE_API_KEY=your_google_generative_ai_key
 #### Start Backend
 ```bash
 cd Backend
-npm run dev
+node App.js
 ```
 
 #### Start Frontend
