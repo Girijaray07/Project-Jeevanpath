@@ -254,7 +254,7 @@ function VoiceChatbot({ onClose, onEarnPoints, apiKey }: VoiceChatbotProps) {
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-600 to-indigo-600 p-4 rounded-t-lg">
           <div className="flex items-center text-white">
             <MessageSquare className="w-6 h-6 mr-2" />
-            <span className="font-semibold text-lg">Jeevanpath Buddy</span>
+            <span className="font-semibold text-lg">JeevanPath Buddy</span>
           </div>
           <button
             onClick={onClose}
