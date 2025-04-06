@@ -6,7 +6,7 @@ import FeatureCard from "./FeatureCard";
 function Body() {
     return (
         <section className="container mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <FeatureCard
             icon={<Brain className="w-8 h-8 text-purple-400" />}
             title="AI-Powered Learning"

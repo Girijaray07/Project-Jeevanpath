@@ -7,7 +7,7 @@ interface HeroProps {
 
 function Hero(props: HeroProps) {
     return (
-        <header className="container mx-auto px-4 py-16 text-center">
+        <header className="w-full px-4 py-12 text-center sm:py-16">
             <div className="animate-float flex justify-center">
                 <h1 className="flex flex-row items-center gap-4 text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-6">
                     <RobotViewer rotate={false} height={80} />
