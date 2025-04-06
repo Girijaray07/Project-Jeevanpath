@@ -2,10 +2,11 @@
 
 import React, { useState, useEffect, useRef } from "react"
 import ReactMarkdown from "react-markdown";
-
-
 import { MessageSquare, Mic, X, Send, Sparkles } from "lucide-react"
 import { GoogleGenerativeAI } from "@google/generative-ai"
+
+import RobotViewer from "./object3D";
+
 
 interface VoiceChatbotProps {
   onClose: () => void
@@ -253,8 +254,10 @@ function VoiceChatbot({ onClose, onEarnPoints, apiKey }: VoiceChatbotProps) {
       <div className="bg-gray-900 rounded-lg shadow-xl w-full max-w-[800px] h-[600px] flex flex-col m-4 border border-purple-500">
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-600 to-indigo-600 p-4 rounded-t-lg">
           <div className="flex items-center text-white">
-            <MessageSquare className="w-6 h-6 mr-2" />
-            <span className="font-semibold text-lg">JeevanPath Buddy</span>
+          <RobotViewer rotate={true} height={30} />
+            <span className="font-semibold text-lg">
+              JeevanPath Buddy
+            </span>
           </div>
           <button
             onClick={onClose}

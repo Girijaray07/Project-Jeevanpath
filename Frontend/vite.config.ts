@@ -7,9 +7,12 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  build: {
+    outDir: 'build'
+  },
   server: {
     host: true,
     port: 5173,
-    allowedHosts: ["a9e2-49-249-103-234.ngrok-free.app", "b2c2-49-249-103-234.ngrok-free.app"],
+    allowedHosts: ["9211-115-247-66-78.ngrok-free.app"],
   }
 });
