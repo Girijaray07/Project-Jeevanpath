@@ -98,9 +98,9 @@ npm run dev
 - Deploy on cloud (Render, Vercel, Railway, etc.)  
 
 ## 📸 Screenshots
-[@1](./Images/homePage.png) 
-[@2](./Images/chatBot(without%20Voice).png) 
-[@3](./Images/chatBot(with%20Voice).png) 
+![banner](./Images/homePage.png) 
+![banner](./Images/chatBot(without%20Voice).png) 
+![banner](./Images/chatBot(with%20Voice).png) 
 
 ## 🧑‍💻 Author
 
